@@ -1,0 +1,18 @@
+
+R
+java:S1854"7Remove this useless assignment to local variable "avg".(ÍŠÈöÿÿÿÿÿ
+V
+java:S1659"@Declare "max" and all following declarations on a separate line.(³‹¤Ó
+S	java:S106"9Replace this use of System.out or System.err by a logger.(„†™ÿıÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ÕïŞ»úÿÿÿÿ
+S	java:S106%"9Replace this use of System.out or System.err by a logger.(‡†”«ÿÿÿÿÿ
+D
+java:S1905>")Remove this unnecessary cast to "double".(”Ëì½üÿÿÿÿ
+N	java:S106A"9Replace this use of System.out or System.err by a logger.(£Á™ˆ
+S	java:S106B"9Replace this use of System.out or System.err by a logger.(Ê’‰Ãşÿÿÿÿ
+N	java:S106C"9Replace this use of System.out or System.err by a logger.(øÏÈ
+[
+java:S2184>"@Cast one of the operands of this integer division to a "double".(”Ëì½üÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¨ûÁ®
+X
+java:S3518>"=Make sure "counter" can't be zero before doing this division.(”Ëì½üÿÿÿÿ
