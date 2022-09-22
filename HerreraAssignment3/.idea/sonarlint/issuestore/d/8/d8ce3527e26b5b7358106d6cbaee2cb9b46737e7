@@ -1,0 +1,25 @@
+
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(Çµí‘
+E
+java:S1481"0Remove this unused "differentId" local variable.(È‰ğ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Ùú–ïúÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(å–ÜÚ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(‚İŸş
+N	java:S106."9Replace this use of System.out or System.err by a logger.(âìèÑ
+S	java:S1063"9Replace this use of System.out or System.err by a logger.(¦¬ãÕÿÿÿÿÿ
+S	java:S1067"9Replace this use of System.out or System.err by a logger.(¦¬ãÕÿÿÿÿÿ
+S	java:S106<"9Replace this use of System.out or System.err by a logger.(û”‚–ûÿÿÿÿ
+S	java:S106H"9Replace this use of System.out or System.err by a logger.(Ò€Ğåüÿÿÿÿ
+S	java:S106R"9Replace this use of System.out or System.err by a logger.(„ãûÍşÿÿÿÿ
+N	java:S106a"9Replace this use of System.out or System.err by a logger.(·–ø•
+D
+java:S1125y"'Remove the unnecessary boolean literal.(ûÅŸ8ŞÈî–³0
+Z	java:S106z"9Replace this use of System.out or System.err by a logger.(£«Ëçûÿÿÿÿ8ÿ¢¹•³0
+`
+java:S1128">Remove this unused import 'org.jetbrains.annotations.NotNull'.(éš®ïøÿÿÿÿ8Ñ²•³0
+O
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8Ñ²•³0
+_
+java:S1192."IDefine a constant instead of duplicating this literal "Student " 4 times.(âìèÑ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Õ™›ùÿÿÿÿ
