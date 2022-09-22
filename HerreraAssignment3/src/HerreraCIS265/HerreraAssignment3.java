@@ -3,11 +3,15 @@ package HerreraCIS265;
 import java.util.Scanner;
 
 /**
+ * This is a refactor of assign. 2.
+ * This new version includes the use of methods to validate the inputs from the user.
+ * Besides, a new set of functions to check the ID.
+ *
  * @author Carlos Herrera
- * @version 1.0
+ * @version 3.0
  */
 public class HerreraAssignment3 {
-    static Scanner scan = new Scanner(System.in); //Declaring the scanner object to get the input from the user
+    static Scanner scan = new Scanner(System.in); //Declaring a statics scanner object to get the input from the user
 
     public static void main(String[] args) {
         boolean differentId = true;
@@ -26,7 +30,7 @@ public class HerreraAssignment3 {
             int tempId = 0;
             double tempGPA;
 
-            //Setting the name by using a method
+            //Setting the name, id, and GPA by using a method
             tempName = setName(i);
 
             tempId = setId(i, students);
@@ -98,8 +102,11 @@ public class HerreraAssignment3 {
     }
 
     //Refactor
-    //Works
-    //Check length for the array
+    /**
+     * This method checks if the user inputs correctly the length of the array based on the given parameters.
+     *
+     * @return the correct length of the array to be created.
+     */
     public static int checkLengthArray() {
         int numStudents = 0;
         String input;
@@ -125,14 +132,25 @@ public class HerreraAssignment3 {
         return numStudents;
     }
 
-    //Works
+    /**
+     * This method sets the name of the new student
+     *
+     * @param counter The number of the actual student
+     * @return The name that is going to be input in the array
+     */
     public static String setName(int counter){
         System.out.print("Student " + (counter + 1) + " name: ");
         String tempName = scan.next();
         return tempName;
     }
 
-    //Works
+    /**
+     * This method sets the ID of the new student
+     *
+     * @param counter The number of the actual student
+     * @param students The array of students
+     * @return The id of the new student validated
+     */
     public static int setId(int counter, Student[] students){
         int tempId = 0;
         //After the first student the program will check if there is any duplicate ID to reject it
@@ -146,7 +164,12 @@ public class HerreraAssignment3 {
         return tempId;
     }
 
-    //Works
+    /**
+     * This method checks if the ID was correctly input
+     *
+     * @param counter The number of the actual student
+     * @return The validated ID.
+     */
     public static int checkID(int counter){
         String input;
         int id=0;
@@ -168,6 +191,11 @@ public class HerreraAssignment3 {
         return id;
     }
 
+    /**
+     * This method checks if the user inputs a valid ID
+     *
+     * @return The validated ID
+     */
     public static int checkIDNoCounter(){
         String input;
         int id=0;
@@ -194,7 +222,12 @@ public class HerreraAssignment3 {
         return id;
     }
 
-    //Works
+    /**
+     * This method checks if the GPA was correctly input and sets the GPA of a student
+     *
+     * @param counter The number of the actual student
+     * @return The validated GPA
+     */
     public static double setGPA(int counter){
         String input;
         double GPA=-1.0;
