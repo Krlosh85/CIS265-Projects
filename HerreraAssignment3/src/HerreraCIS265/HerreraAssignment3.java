@@ -114,8 +114,8 @@ public class HerreraAssignment3 {
         //Creating the array
 
         do { //Getting the number of students to create the array
-            System.out.println("Please, tell me how many students do yo have (1-10): ");
-            input = scan.nextLine();
+            System.out.print("Please, tell me how many students do yo have (1-10): ");
+            input = scan.next();
 
             try{
                 numStudents = Integer.parseInt(input);
@@ -125,6 +125,7 @@ public class HerreraAssignment3 {
                     correctAmount = true;
                 }
             }catch (NumberFormatException e){
+                System.out.println("Please input a number between 1 and 10.");
                 correctAmount = false;
             }
         } while (!correctAmount);
@@ -201,7 +202,7 @@ public class HerreraAssignment3 {
         int id=0;
         while (id == 0){
             try {
-                System.out.println("Enter a student ID (Enter 0 to quit): ");
+                System.out.print("Enter a student ID (Enter 0 to quit): ");
                 input = scan.next();
 
                 if (Integer.parseInt(input) == 0){
