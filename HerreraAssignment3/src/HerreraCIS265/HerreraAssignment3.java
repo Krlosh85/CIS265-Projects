@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @version 3.0
  */
 public class HerreraAssignment3 {
-    static Scanner scan = new Scanner(System.in); //Declaring a statics scanner object to get the input from the user
+    private static Scanner scan = new Scanner(System.in); //Declaring a statics scanner object to get the input from the user
 
     public static void main(String[] args) {
         boolean differentId = true;
@@ -115,7 +115,7 @@ public class HerreraAssignment3 {
 
         do { //Getting the number of students to create the array
             System.out.print("Please, tell me how many students do yo have (1-10): ");
-            input = scan.next();
+            input = scan.nextLine();
 
             try{
                 numStudents = Integer.parseInt(input);
@@ -140,8 +140,9 @@ public class HerreraAssignment3 {
      * @return The name that is going to be input in the array
      */
     public static String setName(int counter){
+        Scanner scan2 = new Scanner(System.in);
         System.out.print("Student " + (counter + 1) + " name: ");
-        String tempName = scan.next();
+        String tempName = scan2.nextLine();
         return tempName;
     }
 
