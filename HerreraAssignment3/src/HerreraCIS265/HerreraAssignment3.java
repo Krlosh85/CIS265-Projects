@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @version 3.0
  */
 public class HerreraAssignment3 {
-    static Scanner scan = new Scanner(System.in); //Declaring a statics scanner object to get the input from the user
+    private static Scanner scan = new Scanner(System.in); //Declaring a statics scanner object to get the input from the user
 
     public static void main(String[] args) {
         boolean differentId = true;
@@ -114,7 +114,7 @@ public class HerreraAssignment3 {
         //Creating the array
 
         do { //Getting the number of students to create the array
-            System.out.println("Please, tell me how many students do yo have (1-10): ");
+            System.out.print("Please, tell me how many students do yo have (1-10): ");
             input = scan.nextLine();
 
             try{
@@ -125,6 +125,7 @@ public class HerreraAssignment3 {
                     correctAmount = true;
                 }
             }catch (NumberFormatException e){
+                System.out.println("Please input a number between 1 and 10.");
                 correctAmount = false;
             }
         } while (!correctAmount);
@@ -139,8 +140,9 @@ public class HerreraAssignment3 {
      * @return The name that is going to be input in the array
      */
     public static String setName(int counter){
+        Scanner scan2 = new Scanner(System.in);
         System.out.print("Student " + (counter + 1) + " name: ");
-        String tempName = scan.next();
+        String tempName = scan2.nextLine();
         return tempName;
     }
 
@@ -201,7 +203,7 @@ public class HerreraAssignment3 {
         int id=0;
         while (id == 0){
             try {
-                System.out.println("Enter a student ID (Enter 0 to quit): ");
+                System.out.print("Enter a student ID (Enter 0 to quit): ");
                 input = scan.next();
 
                 if (Integer.parseInt(input) == 0){

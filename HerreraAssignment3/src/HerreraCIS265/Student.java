@@ -1,4 +1,5 @@
 package HerreraCIS265;
+
 /**
  * This class represents a Student object and its properties
  * @author Carlos Herrera
@@ -34,9 +35,11 @@ public class Student {
      * Prints all the local information stored from a student
      */
     public void printStudent(){
-        System.out.println("Student name: "+name);
-        System.out.println("Student id: "+id);
-        System.out.println("Student gpa: "+gpa);
+        System.out.println("=================================");
+        System.out.println("\tStudent name: "+name);
+        System.out.println("\tStudent id: "+id);
+        System.out.println("\tStudent gpa: "+gpa);
+        System.out.println("=================================");
     }
 
     /**
