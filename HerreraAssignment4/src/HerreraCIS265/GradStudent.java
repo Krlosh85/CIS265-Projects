@@ -11,7 +11,7 @@ public class GradStudent extends Student{
     @Override
     public void printStudent() {
         super.printStudent();
-        System.out.println("College Graduated: "+college);
+        System.out.println("\tCollege Graduated: "+college);
         System.out.println("=================================");
     }
 }

@@ -11,7 +11,7 @@ public class UndergradStudent extends Student {
     @Override
     public void printStudent() {
         super.printStudent();
-        System.out.println("Transfer Student: "+isTransfer);
+        System.out.println("\tTransfer Student: "+isTransfer);
         System.out.println("=================================");
     }
 }

@@ -1,5 +1,6 @@
 package HerreraCIS265;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -9,42 +10,65 @@ import java.util.Scanner;
  * @version 4.0
  */
 public class HerreraAssignment4 {
-    private static Scanner scan = new Scanner(System.in); //Declaring a statics scanner object to get the input from the user
+    private static Scanner scan = new Scanner(System.in); //Declaring a static scanner object to get the input from the user
 
     public static void main(String[] args) {
         boolean differentId = true;
 
         System.out.println("Welcome to the student management system!"); //A warming welcome message :)
 
-        int numStudents = checkLengthArray();
-
         //Creating the array that will allocate the students information
-        Student[] students = new Student[numStudents];
+        ArrayList<Student> students = new ArrayList<>();
+
 
         //Populating the array
-        for (int i = 0; i < students.length; i++) {
-            //Creating variables inside for to delete them after completing the loop (since they are temporary).
-            String tempName;
-            int tempId = 0;
-            double tempGPA;
+        boolean flag = true;
+        while(flag){
+            System.out.print("Do you have more students to enter? (Y for yes, N for no): ");
+            String ans = scan.next();
+            if (ans.toString().toUpperCase().equals("Y")){
+                System.out.print("Undergraduate or Graduate student? (U for undergraduate, G for Graduate): ");
+                ans = scan.next();
 
-            //Setting the name, id, and GPA by using a method
-            tempName = setName(i);
+                String tempName = setName();
+                int tempId = setId(students);
+                double tempGPA = setGPA();
 
-            tempId = setId(i, students);
+                if (ans.toString().toUpperCase().equals("U")){
+                    boolean transfer = true;
+                    System.out.println("Is a Transfer student? (Y for yes, N for no): ");
+                    ans = scan.next();
+                    if (ans.toString().toUpperCase().equals("Y")){
+                        transfer = true;
+                    }else if (ans.toString().toUpperCase().equals("n")){
+                        transfer = false;
+                    }
 
-            tempGPA = setGPA(i);
+                    students.add(new UndergradStudent(tempName, tempId, tempGPA, transfer));
+                }else if(ans.toString().toUpperCase().equals("G")){
+                    String college;
+                    Scanner scan2 = new Scanner(System.in);
+                    System.out.println("What college did the student graduate from: ");
+                    college = scan2.nextLine();
+                    students.add(new GradStudent(tempName, tempId, tempGPA, college));
+                }
 
-            students[i] = new Student(tempName, tempId, tempGPA); //Allocating their information in different objects inside the array
+
+            }else if (ans.toString().toUpperCase().equals("N")){
+                flag=false;
+            }
         }
+
 
         //Creating the linear search until the user inputs 0 as ID
         //Variables used to do the linear search
         int enteredId;
-        boolean flag = true;
+        flag = true;
 
+        System.out.println("\tEntering search mode: ");
         while (flag) {
-            enteredId = checkIDNoCounter();
+            System.out.println("Enter a student ID (enter 0 to quit)");
+            enteredId = scan.nextInt();
 
             if (enteredId == 0) { //If 0 is typed, the flag changes to false and exits the while
                 flag = false;
@@ -62,17 +86,18 @@ public class HerreraAssignment4 {
      *
      * @param student      The array that contains the information of all the students objects
      * @param id           The ID that was just enetered by the user to check if it's repetied
-     * @param actualLength is the index of the last location with a value. (i.e. students[actualLength])
      */
-    public static boolean checkIdIsRepeated(Student[] student, int id, int actualLength) {
-        boolean flag = true; //Meaning that it is repeated
+    public static boolean checkIdIsRepeated(ArrayList<Student> student, int id) {
+        boolean flag = false; //Meaning that it is repeated
 
-        for (int i = 0; i < actualLength; i++) {
-            if (id == student[i].getId()) {
-                System.out.println("Student ID: " + id + " already exists! Please retry!");
-                return true;
-            } else {
-                flag = false;
+        if (student.size() != 0){
+            for (int i = 0; i < student.size(); i++) {
+                if (id == student.get(i).getId()) {
+                    System.out.println("Student ID: " + id + " already exists! Please retry!");
+                    return true;
+                } else {
+                    flag = false;
+                }
             }
         }
         return flag;
@@ -84,7 +109,7 @@ public class HerreraAssignment4 {
      * @param student The array that contains the information of all the students objects
      * @param id      The ID that the user is looking for
      */
-    public static void linearSearch(Student[] student, int id) {
+    public static void linearSearch(ArrayList<Student> student, int id) {
         boolean flag = false;
         for (Student actualStudent : student) {
             if (actualStudent.getId() == id) {
@@ -134,12 +159,11 @@ public class HerreraAssignment4 {
     /**
      * This method sets the name of the new student
      *
-     * @param counter The number of the actual student
      * @return The name that is going to be input in the array
      */
-    public static String setName(int counter){
+    public static String setName(){
         Scanner scan2 = new Scanner(System.in);
-        System.out.print("Student " + (counter + 1) + " name: ");
+        System.out.print("Student name: ");
         String tempName = scan2.nextLine();
         return tempName;
     }
@@ -147,94 +171,59 @@ public class HerreraAssignment4 {
     /**
      * This method sets the ID of the new student
      *
-     * @param counter The number of the actual student
-     * @param students The array of students
      * @return The id of the new student validated
      */
-    public static int setId(int counter, Student[] students){
+    public static int setId(ArrayList<Student> student){
         int tempId = 0;
         //After the first student the program will check if there is any duplicate ID to reject it
-        if (counter == 0) {
-            tempId = checkID(counter);
-        } else {
-            do {
-                tempId = checkID(counter);
-            } while (checkIdIsRepeated(students, tempId, counter));
-        }
+        do {
+            tempId = checkID();
+        } while (checkIdIsRepeated(student, tempId));
+
         return tempId;
     }
 
-    /**
-     * This method checks if the ID was correctly input
-     *
-     * @param counter The number of the actual student
-     * @return The validated ID.
-     */
-    public static int checkID(int counter){
-        String input;
-        int id=0;
-        while (id == 0){
-            try {
-                System.out.print("Student " + (counter + 1) + " ID: ");
-                input = scan.next();
-
-                if (Integer.parseInt(input) >= 1000000 && Integer.parseInt(input) <= 9999999){
-                    id = Integer.parseInt(input);
-                }else {
-                    System.out.println("Please input an integer between 1000000 and 9999999");
-                }
-            }catch (NumberFormatException e){
-                System.out.println("Please input an integer between 1000000 and 9999999");
-                id = 0;
-            }
-        }
-        return id;
-    }
 
     /**
      * This method checks if the user inputs a valid ID
      *
      * @return The validated ID
      */
-    public static int checkIDNoCounter(){
+    public static int checkID(){
         String input;
         int id=0;
         while (id == 0){
             try {
-                System.out.print("Enter a student ID (Enter 0 to quit): ");
+                System.out.print("Student ID: ");
                 input = scan.next();
 
-                if (Integer.parseInt(input) == 0){
-                    id = Integer.parseInt(input);
-                    return id;
-                }
-                else if (Integer.parseInt(input) >= 1000000 && Integer.parseInt(input) <= 9999999){
+                if (Integer.parseInt(input) > 0){
                     id = Integer.parseInt(input);
                     return id;
                 }else {
-                    System.out.println("A valid ID is an integer between 1000000 and 9999999");
+                    System.out.println("A valid ID is an integer greater than 0");
                 }
             }catch (NumberFormatException e){
-                System.out.println("Please input an integer between 1000000 and 9999999");
+                System.out.println("Please input an integer greater than 0");
                 id = 0;
             }
         }
         return id;
     }
 
+
     /**
      * This method checks if the GPA was correctly input and sets the GPA of a student
      *
-     * @param counter The number of the actual student
      * @return The validated GPA
      */
-    public static double setGPA(int counter){
+    public static double setGPA(){
         String input;
         double GPA=-1.0;
 
         do {
             try{
-                System.out.print("Student " + (counter + 1) + " GPA: ");
+                System.out.print("Student GPA: ");
                 input = scan.next();
 
                 if (Double.parseDouble(input) >= 0 && Double.parseDouble(input) <= 4.0){
