@@ -1,0 +1,8 @@
+James Bond,200304,3.2,undergraduate,true
+Michelle Chang,200224,3.3,graduate,Cleveland State University
+Tayer Smoke,249843,2.4,undergraduate,false
+David Jones,265334,2.7,undergraduate,true
+Abby Wasch,294830,3.6,graduate,West Virginia
+Nancy Drew,244833,2.9,graduate,Case Western
+Lady Gaga,230940,3.1,undergraduate,false
+Sam Jackson,215443,3.9,graduate,Ohio State University

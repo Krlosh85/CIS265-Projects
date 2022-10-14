@@ -1,0 +1,26 @@
+package HerreraCIS265;
+
+import java.io.PrintWriter;
+
+public class UndergradStudent extends Student {
+    private boolean isTransfer;
+
+    public UndergradStudent(String name, int id, double gpa, boolean isTransfer){
+        super(name, id, gpa);
+        this.isTransfer = isTransfer;
+    }
+
+    @Override
+    public void printStudent() {
+        super.printStudent();
+        System.out.println("\tTransfer Student: "+isTransfer);
+        System.out.println("=================================");
+    }
+
+    @Override
+    public void printStudent(PrintWriter output){
+        super.printStudent(output);
+        output.write("undergraduate," +String.valueOf(isTransfer));
+        output.println();
+    }
+}
