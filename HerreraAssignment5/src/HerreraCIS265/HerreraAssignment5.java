@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
 public class HerreraAssignment5 {
 
     public static void main(String[] args) throws FileNotFoundException {
+        System.out.println("Welcome to los Pollos Hermanos");
         File file = new File("D:\\Escritorio 2\\CSU\\CIS 265\\CIS265-Projects\\HerreraAssignment5\\src\\HerreraCIS265\\students.txt");
         Scanner scan = new Scanner(file);
         StringTokenizer token;
