@@ -6,3 +6,9 @@ Abby Wasch,294830,3.6,graduate,West Virginia
 Nancy Drew,244833,2.9,graduate,Case Western
 Lady Gaga,230940,3.1,undergraduate,false
 Sam Jackson,215443,3.9,graduate,Ohio State University
+Sam Jackson,215.22,3.9,graduate,Ohio State University
+Sam Jackson,215443,22af,graduate,Ohio State University
+Sam Jackson,215443,3.9,graduate
+Sam Jackson,215443,3.9,graduate,Ohio State University,cleavland
+Sam Jackson,215443,3.9,nondegree,Ohio State University
+Lady Gaga,230940,3.1,undergraduate,unknown
